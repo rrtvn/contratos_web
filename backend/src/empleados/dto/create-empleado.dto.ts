@@ -4,19 +4,22 @@ import { IsNotEmpty } from "class-validator";
 export class CreateEmpleadoDto {
     @IsNotEmpty()
     rut!: string;
-
     @IsNotEmpty()
-    nombre!: string;
-
+    primerNombre!: string;
+    @IsNotEmpty()
+    segundoNombre!: string;
+    @IsNotEmpty()
+    primerApellido!: string;
+    @IsNotEmpty()
+    segundoApellido!: string;
     @IsNotEmpty()
     fechaIngreso!: Date;
-
     @IsNotEmpty()
     cargo!: string;
-
     @IsNotEmpty()
-    salario!: number;
-
+    titulo!: string;
+    @IsNotEmpty()
+    edad!: number;
     @IsNotEmpty()
     fechaNacimiento!: Date;
 

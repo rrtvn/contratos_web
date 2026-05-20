@@ -11,7 +11,8 @@ export class EmpleadosRepository {
     async create(data: Partial<Empleado>){
         return this.empleadosModel.create(data);
     }
-    async findAll(){
-        return this.empleadosModel.find().lean();
+    async findAll(): Promise<Empleado[]> {
+        console.log(await this.empleadosModel.find().lean());
+        return await this.empleadosModel.find().lean();
     }
 }

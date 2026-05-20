@@ -12,8 +12,8 @@ export class EmpleadosController {
         return this.empleadosService.crearEmpleado(empleado);
     }
 
-    @Get(':rut')
-    obtenerEmpleado(@Param('rut') rut: string) {
+    @Get()
+    obtenerEmpleado() {
         return this.empleadosService.obtenerTodos();
     }
 }
