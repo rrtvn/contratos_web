@@ -12,7 +12,7 @@ export class EmpleadosRepository {
         return this.empleadosModel.create(data);
     }
     async findAll(): Promise<Empleado[]> {
-        console.log(await this.empleadosModel.find().lean());
+        console.log(await this.empleadosModel.find());
         return await this.empleadosModel.find().lean();
     }
 }
