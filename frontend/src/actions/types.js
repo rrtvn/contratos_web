@@ -1,0 +1,5 @@
+
+export const types={
+    //EMPLEADOS
+    CARGAR_EMPLEADOS: '[EMPLEADOS] CARGAR_EMPLEADOS',
+}
