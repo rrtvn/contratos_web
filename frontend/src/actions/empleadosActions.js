@@ -1,5 +1,10 @@
 
+import { fetchEmpleados } from '../thunk/empleadosThunk';
 import { types } from './types';
+
+export const loadEmpleados = (dispatch) => {
+    dispatch(fetchEmpleados());
+}
 
 const cargarEmpleados = (empleados) => ({
     type: types.CARGAR_EMPLEADOS,

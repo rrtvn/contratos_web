@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search, User, ChevronRight, Loader, FileText, Download, Printer, AlertCircle, CheckCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { employeesApi, contractsApi, Employee, ContractAnnex, Contract } from '../services/api';
 import { EmployeeCard } from '../components/EmployeeCard';
 import { AnnexesManager } from '../components/AnnexesManager';
 import { exportContractPdf, printContract } from '../utils/pdfExport';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadEmpleados } from '../actions/empleadosActions';
 
 type Step = 'search' | 'form' | 'preview';
 
@@ -24,6 +26,8 @@ const JORNADAS = [
 ];
 
 export function NewContractPage() {
+  const dispatch = useDispatch();
+  const { empleados, error } = useSelector((state: any) => state.empleados);
   const [step, setStep] = useState<Step>('search');
   const [rutInput, setRutInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,6 +35,10 @@ export function NewContractPage() {
   const [savedContract, setSavedContract] = useState<Contract | null>(null);
   const [exportingPdf, setExportingPdf] = useState(false);
   const [annexes, setAnnexes] = useState<ContractAnnex[]>([]);
+
+  useEffect(() => {
+    loadEmpleados(dispatch);
+  }, [dispatch]);
 
   // Form state
   const [form, setForm] = useState({
@@ -48,7 +56,8 @@ export function NewContractPage() {
     if (!rutInput.trim()) { toast.error('Ingresa un RUT'); return; }
     setLoading(true);
     try {
-      const emp = await employeesApi.findByRut(rutInput.trim());
+      const emp = await empleados;
+      console.log
       setEmployee(emp);
       // Pre-llenar form con datos del empleado
       setForm(f => ({
