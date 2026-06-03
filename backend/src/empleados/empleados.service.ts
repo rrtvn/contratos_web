@@ -20,5 +20,9 @@ export class EmpleadosService {
     async obtenerTodos() {
         return this.empleadoRepository.findAll();
     }
+
+    async findByRut(rut: string) {
+        return this.empleadoRepository.findByRut(rut);
+    }
 }
 

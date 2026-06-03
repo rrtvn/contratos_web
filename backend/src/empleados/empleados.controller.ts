@@ -16,4 +16,9 @@ export class EmpleadosController {
     obtenerEmpleado() {
         return this.empleadosService.obtenerTodos();
     }
+
+    @Get('findByRut/:rut')
+    findByRut(@Param('rut') rut: string) {
+        return this.empleadosService.findByRut(rut);
+    }
 }

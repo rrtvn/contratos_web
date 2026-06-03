@@ -15,4 +15,7 @@ export class EmpleadosRepository {
         console.log(await this.empleadosModel.find());
         return await this.empleadosModel.find().lean();
     }
+    async findByRut(rut: string): Promise<Empleado | null> {
+        return await this.empleadosModel.findOne({ rut }).lean();
+    }
 }

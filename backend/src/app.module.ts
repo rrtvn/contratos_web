@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { Mongoose } from 'mongoose';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ContratosModule } from './contratos/contratos.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
     }),
     EmpleadosModule,
+    ContratosModule,
   ],
   // controllers: [AppController],
   // providers: [AppService],
